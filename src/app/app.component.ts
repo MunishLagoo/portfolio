@@ -7,7 +7,7 @@ import { StocksService } from './services/stocks.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [StocksService],
+  providers: [StocksService]
 })
 export class AppComponent implements OnInit, OnDestroy {
   refresh: boolean = true;
@@ -21,9 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.load();
 
     this.interval = setInterval(() => {
-      if (this.refresh) {
-        this.load();
-      }
+      if (this.refresh) { this.load(); }
     }, 15000)
   }
 
@@ -39,11 +37,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.accountService.reset();
   }
 
-  private load(): void {
+  private load() {
       this.stocksService.getStocks().subscribe(stocks => {
         this.stocks = stocks;
       }, error => {
-        console.error(`THere was an error loading stocks: ${error}`);
+        console.error(`There was an error loading stocks: ${error}`);
       });
   }
 }
