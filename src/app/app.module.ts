@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from 'clarity-angular';
 import { CurrencyPipe } from '@angular/common';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InvestmentsComponent } from './investments/investments.component';
 import { TickerComponent } from './ticker/ticker.component';
@@ -20,11 +21,12 @@ import { AccountService } from './services/account.service';
         TickerComponent,
         StocksComponent,
         AlertComponent,
-      ],
+        ],
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
         ClarityModule,
+        HttpClientModule,
   ],
   providers: [
         LocalStorageService,
